@@ -5,7 +5,9 @@ let pp_copy ppf l =
   List.iter (fun s -> Format.fprintf ppf "(copy raw/lib/%s %s)\n" s s) l
 
 let modules =
-  List.concat_map (fun s ->
+  List.concat @@
+  List.map
+    (fun s ->
       [ Printf.sprintf "%s_stubs" s;
         Printf.sprintf "%s_bindings" s])
   [ "Hacl_Spec"
