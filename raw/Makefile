@@ -205,6 +205,9 @@ ocamlevercrypt.cmxa: $(ALL_BINDINGS) $(ALL_ML_STUBS) $(ALL_C_STUBS) libevercrypt
 
 STUBLIBS_PATH=$(OPAM_SWITCH_PREFIX)/lib/stublibs
 
+libevercrypt_c_stubs.a: $(ALL_C_STUBS)
+	ar rc $@ $+
+
 dllocamlevercrypt.$(SO): ocamlevercrypt.cmxa ocamlevercrypt.cma
 	ocamlmklib -o ocamlevercrypt $(ALL_C_STUBS) -L. -L$(STUBLIBS_PATH) -levercrypt
 
