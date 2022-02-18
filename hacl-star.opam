@@ -14,7 +14,7 @@ doc: "https://hacl-star.github.io/ocaml_doc"
 bug-reports: "https://github.com/project-everest/hacl-star/issues"
 depends: [
   "ocaml" { >= "4.08.0" }
-  "dune" {>= "1.2"}
+  "dune" {>= "2.6"}
   "hacl-star-raw" {= version}
   "zarith"
   "cppo" {build}
