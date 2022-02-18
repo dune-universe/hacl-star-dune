@@ -458,6 +458,11 @@ if detect_powerpc; then
   fi
 fi
 
+# dune port: disable arch-specific code
+compile_vec128=false
+compile_vec256=false
+compile_vale=false
+
 if $compile_intrinsics; then
   echo "$build_target supports _addcarry_u64"
   echo "#define HACL_CAN_COMPILE_INTRINSICS 1" >> config.h
