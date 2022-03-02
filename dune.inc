@@ -12,6 +12,8 @@ Hacl_Hash_Base_stubs
 Hacl_Hash_Base_bindings
 Hacl_Hash_Blake2_stubs
 Hacl_Hash_Blake2_bindings
+Hacl_Hash_Blake2s_128_stubs
+Hacl_Hash_Blake2s_128_bindings
 Hacl_Hash_MD5_stubs
 Hacl_Hash_MD5_bindings
 Hacl_Hash_SHA1_stubs
@@ -44,6 +46,8 @@ Hacl_Ed25519_stubs
 Hacl_Ed25519_bindings
 Hacl_Poly1305_32_stubs
 Hacl_Poly1305_32_bindings
+Hacl_Poly1305_128_stubs
+Hacl_Poly1305_128_bindings
 Hacl_NaCl_stubs
 Hacl_NaCl_bindings
 EverCrypt_Error_stubs
@@ -56,6 +60,8 @@ Hacl_Frodo_KEM_stubs
 Hacl_Frodo_KEM_bindings
 Hacl_IntTypes_Intrinsics_stubs
 Hacl_IntTypes_Intrinsics_bindings
+Hacl_IntTypes_Intrinsics_128_stubs
+Hacl_IntTypes_Intrinsics_128_bindings
 Hacl_RSAPSS_stubs
 Hacl_RSAPSS_bindings
 Hacl_FFDHE_stubs
@@ -64,10 +70,16 @@ Hacl_Streaming_Blake2_stubs
 Hacl_Streaming_Blake2_bindings
 Hacl_Frodo640_stubs
 Hacl_Frodo640_bindings
+Hacl_Chacha20_Vec128_stubs
+Hacl_Chacha20_Vec128_bindings
+Hacl_Chacha20Poly1305_128_stubs
+Hacl_Chacha20Poly1305_128_bindings
 Hacl_HMAC_stubs
 Hacl_HMAC_bindings
 Hacl_HKDF_stubs
 Hacl_HKDF_bindings
+Hacl_HPKE_Curve51_CP128_SHA512_stubs
+Hacl_HPKE_Curve51_CP128_SHA512_bindings
 Hacl_GenericField32_stubs
 Hacl_GenericField32_bindings
 Hacl_Bignum256_stubs
@@ -80,18 +92,28 @@ EverCrypt_Ed25519_stubs
 EverCrypt_Ed25519_bindings
 Hacl_Bignum4096_32_stubs
 Hacl_Bignum4096_32_bindings
+Hacl_HPKE_P256_CP128_SHA256_stubs
+Hacl_HPKE_P256_CP128_SHA256_bindings
 Hacl_SHA2_Scalar32_stubs
 Hacl_SHA2_Scalar32_bindings
 Hacl_Frodo976_stubs
 Hacl_Frodo976_bindings
+Hacl_HMAC_Blake2s_128_stubs
+Hacl_HMAC_Blake2s_128_bindings
+Hacl_HKDF_Blake2s_128_stubs
+Hacl_HKDF_Blake2s_128_bindings
 Hacl_GenericField64_stubs
 Hacl_GenericField64_bindings
 Hacl_Frodo1344_stubs
 Hacl_Frodo1344_bindings
 Hacl_Bignum32_stubs
 Hacl_Bignum32_bindings
+Hacl_HPKE_Curve51_CP128_SHA256_stubs
+Hacl_HPKE_Curve51_CP128_SHA256_bindings
 Hacl_Bignum256_32_stubs
 Hacl_Bignum256_32_bindings
+Hacl_SHA2_Vec128_stubs
+Hacl_SHA2_Vec128_bindings
 Hacl_Chacha20Poly1305_32_stubs
 Hacl_Chacha20Poly1305_32_bindings
 Hacl_HPKE_Curve51_CP32_SHA256_stubs
@@ -150,6 +172,8 @@ Hacl_Hash_Base_stubs.ml
 Hacl_Hash_Base_bindings.ml
 Hacl_Hash_Blake2_stubs.ml
 Hacl_Hash_Blake2_bindings.ml
+Hacl_Hash_Blake2s_128_stubs.ml
+Hacl_Hash_Blake2s_128_bindings.ml
 Hacl_Hash_MD5_stubs.ml
 Hacl_Hash_MD5_bindings.ml
 Hacl_Hash_SHA1_stubs.ml
@@ -182,6 +206,8 @@ Hacl_Ed25519_stubs.ml
 Hacl_Ed25519_bindings.ml
 Hacl_Poly1305_32_stubs.ml
 Hacl_Poly1305_32_bindings.ml
+Hacl_Poly1305_128_stubs.ml
+Hacl_Poly1305_128_bindings.ml
 Hacl_NaCl_stubs.ml
 Hacl_NaCl_bindings.ml
 EverCrypt_Error_stubs.ml
@@ -194,6 +220,8 @@ Hacl_Frodo_KEM_stubs.ml
 Hacl_Frodo_KEM_bindings.ml
 Hacl_IntTypes_Intrinsics_stubs.ml
 Hacl_IntTypes_Intrinsics_bindings.ml
+Hacl_IntTypes_Intrinsics_128_stubs.ml
+Hacl_IntTypes_Intrinsics_128_bindings.ml
 Hacl_RSAPSS_stubs.ml
 Hacl_RSAPSS_bindings.ml
 Hacl_FFDHE_stubs.ml
@@ -202,10 +230,16 @@ Hacl_Streaming_Blake2_stubs.ml
 Hacl_Streaming_Blake2_bindings.ml
 Hacl_Frodo640_stubs.ml
 Hacl_Frodo640_bindings.ml
+Hacl_Chacha20_Vec128_stubs.ml
+Hacl_Chacha20_Vec128_bindings.ml
+Hacl_Chacha20Poly1305_128_stubs.ml
+Hacl_Chacha20Poly1305_128_bindings.ml
 Hacl_HMAC_stubs.ml
 Hacl_HMAC_bindings.ml
 Hacl_HKDF_stubs.ml
 Hacl_HKDF_bindings.ml
+Hacl_HPKE_Curve51_CP128_SHA512_stubs.ml
+Hacl_HPKE_Curve51_CP128_SHA512_bindings.ml
 Hacl_GenericField32_stubs.ml
 Hacl_GenericField32_bindings.ml
 Hacl_Bignum256_stubs.ml
@@ -218,18 +252,28 @@ EverCrypt_Ed25519_stubs.ml
 EverCrypt_Ed25519_bindings.ml
 Hacl_Bignum4096_32_stubs.ml
 Hacl_Bignum4096_32_bindings.ml
+Hacl_HPKE_P256_CP128_SHA256_stubs.ml
+Hacl_HPKE_P256_CP128_SHA256_bindings.ml
 Hacl_SHA2_Scalar32_stubs.ml
 Hacl_SHA2_Scalar32_bindings.ml
 Hacl_Frodo976_stubs.ml
 Hacl_Frodo976_bindings.ml
+Hacl_HMAC_Blake2s_128_stubs.ml
+Hacl_HMAC_Blake2s_128_bindings.ml
+Hacl_HKDF_Blake2s_128_stubs.ml
+Hacl_HKDF_Blake2s_128_bindings.ml
 Hacl_GenericField64_stubs.ml
 Hacl_GenericField64_bindings.ml
 Hacl_Frodo1344_stubs.ml
 Hacl_Frodo1344_bindings.ml
 Hacl_Bignum32_stubs.ml
 Hacl_Bignum32_bindings.ml
+Hacl_HPKE_Curve51_CP128_SHA256_stubs.ml
+Hacl_HPKE_Curve51_CP128_SHA256_bindings.ml
 Hacl_Bignum256_32_stubs.ml
 Hacl_Bignum256_32_bindings.ml
+Hacl_SHA2_Vec128_stubs.ml
+Hacl_SHA2_Vec128_bindings.ml
 Hacl_Chacha20Poly1305_32_stubs.ml
 Hacl_Chacha20Poly1305_32_bindings.ml
 Hacl_HPKE_Curve51_CP32_SHA256_stubs.ml
@@ -292,6 +336,8 @@ Lib_RandomBuffer_System_bindings.ml
 (copy raw/lib/Hacl_Hash_Base_bindings.ml Hacl_Hash_Base_bindings.ml)
 (copy raw/lib/Hacl_Hash_Blake2_stubs.ml Hacl_Hash_Blake2_stubs.ml)
 (copy raw/lib/Hacl_Hash_Blake2_bindings.ml Hacl_Hash_Blake2_bindings.ml)
+(copy raw/lib/Hacl_Hash_Blake2s_128_stubs.ml Hacl_Hash_Blake2s_128_stubs.ml)
+(copy raw/lib/Hacl_Hash_Blake2s_128_bindings.ml Hacl_Hash_Blake2s_128_bindings.ml)
 (copy raw/lib/Hacl_Hash_MD5_stubs.ml Hacl_Hash_MD5_stubs.ml)
 (copy raw/lib/Hacl_Hash_MD5_bindings.ml Hacl_Hash_MD5_bindings.ml)
 (copy raw/lib/Hacl_Hash_SHA1_stubs.ml Hacl_Hash_SHA1_stubs.ml)
@@ -324,6 +370,8 @@ Lib_RandomBuffer_System_bindings.ml
 (copy raw/lib/Hacl_Ed25519_bindings.ml Hacl_Ed25519_bindings.ml)
 (copy raw/lib/Hacl_Poly1305_32_stubs.ml Hacl_Poly1305_32_stubs.ml)
 (copy raw/lib/Hacl_Poly1305_32_bindings.ml Hacl_Poly1305_32_bindings.ml)
+(copy raw/lib/Hacl_Poly1305_128_stubs.ml Hacl_Poly1305_128_stubs.ml)
+(copy raw/lib/Hacl_Poly1305_128_bindings.ml Hacl_Poly1305_128_bindings.ml)
 (copy raw/lib/Hacl_NaCl_stubs.ml Hacl_NaCl_stubs.ml)
 (copy raw/lib/Hacl_NaCl_bindings.ml Hacl_NaCl_bindings.ml)
 (copy raw/lib/EverCrypt_Error_stubs.ml EverCrypt_Error_stubs.ml)
@@ -336,6 +384,8 @@ Lib_RandomBuffer_System_bindings.ml
 (copy raw/lib/Hacl_Frodo_KEM_bindings.ml Hacl_Frodo_KEM_bindings.ml)
 (copy raw/lib/Hacl_IntTypes_Intrinsics_stubs.ml Hacl_IntTypes_Intrinsics_stubs.ml)
 (copy raw/lib/Hacl_IntTypes_Intrinsics_bindings.ml Hacl_IntTypes_Intrinsics_bindings.ml)
+(copy raw/lib/Hacl_IntTypes_Intrinsics_128_stubs.ml Hacl_IntTypes_Intrinsics_128_stubs.ml)
+(copy raw/lib/Hacl_IntTypes_Intrinsics_128_bindings.ml Hacl_IntTypes_Intrinsics_128_bindings.ml)
 (copy raw/lib/Hacl_RSAPSS_stubs.ml Hacl_RSAPSS_stubs.ml)
 (copy raw/lib/Hacl_RSAPSS_bindings.ml Hacl_RSAPSS_bindings.ml)
 (copy raw/lib/Hacl_FFDHE_stubs.ml Hacl_FFDHE_stubs.ml)
@@ -344,10 +394,16 @@ Lib_RandomBuffer_System_bindings.ml
 (copy raw/lib/Hacl_Streaming_Blake2_bindings.ml Hacl_Streaming_Blake2_bindings.ml)
 (copy raw/lib/Hacl_Frodo640_stubs.ml Hacl_Frodo640_stubs.ml)
 (copy raw/lib/Hacl_Frodo640_bindings.ml Hacl_Frodo640_bindings.ml)
+(copy raw/lib/Hacl_Chacha20_Vec128_stubs.ml Hacl_Chacha20_Vec128_stubs.ml)
+(copy raw/lib/Hacl_Chacha20_Vec128_bindings.ml Hacl_Chacha20_Vec128_bindings.ml)
+(copy raw/lib/Hacl_Chacha20Poly1305_128_stubs.ml Hacl_Chacha20Poly1305_128_stubs.ml)
+(copy raw/lib/Hacl_Chacha20Poly1305_128_bindings.ml Hacl_Chacha20Poly1305_128_bindings.ml)
 (copy raw/lib/Hacl_HMAC_stubs.ml Hacl_HMAC_stubs.ml)
 (copy raw/lib/Hacl_HMAC_bindings.ml Hacl_HMAC_bindings.ml)
 (copy raw/lib/Hacl_HKDF_stubs.ml Hacl_HKDF_stubs.ml)
 (copy raw/lib/Hacl_HKDF_bindings.ml Hacl_HKDF_bindings.ml)
+(copy raw/lib/Hacl_HPKE_Curve51_CP128_SHA512_stubs.ml Hacl_HPKE_Curve51_CP128_SHA512_stubs.ml)
+(copy raw/lib/Hacl_HPKE_Curve51_CP128_SHA512_bindings.ml Hacl_HPKE_Curve51_CP128_SHA512_bindings.ml)
 (copy raw/lib/Hacl_GenericField32_stubs.ml Hacl_GenericField32_stubs.ml)
 (copy raw/lib/Hacl_GenericField32_bindings.ml Hacl_GenericField32_bindings.ml)
 (copy raw/lib/Hacl_Bignum256_stubs.ml Hacl_Bignum256_stubs.ml)
@@ -360,18 +416,28 @@ Lib_RandomBuffer_System_bindings.ml
 (copy raw/lib/EverCrypt_Ed25519_bindings.ml EverCrypt_Ed25519_bindings.ml)
 (copy raw/lib/Hacl_Bignum4096_32_stubs.ml Hacl_Bignum4096_32_stubs.ml)
 (copy raw/lib/Hacl_Bignum4096_32_bindings.ml Hacl_Bignum4096_32_bindings.ml)
+(copy raw/lib/Hacl_HPKE_P256_CP128_SHA256_stubs.ml Hacl_HPKE_P256_CP128_SHA256_stubs.ml)
+(copy raw/lib/Hacl_HPKE_P256_CP128_SHA256_bindings.ml Hacl_HPKE_P256_CP128_SHA256_bindings.ml)
 (copy raw/lib/Hacl_SHA2_Scalar32_stubs.ml Hacl_SHA2_Scalar32_stubs.ml)
 (copy raw/lib/Hacl_SHA2_Scalar32_bindings.ml Hacl_SHA2_Scalar32_bindings.ml)
 (copy raw/lib/Hacl_Frodo976_stubs.ml Hacl_Frodo976_stubs.ml)
 (copy raw/lib/Hacl_Frodo976_bindings.ml Hacl_Frodo976_bindings.ml)
+(copy raw/lib/Hacl_HMAC_Blake2s_128_stubs.ml Hacl_HMAC_Blake2s_128_stubs.ml)
+(copy raw/lib/Hacl_HMAC_Blake2s_128_bindings.ml Hacl_HMAC_Blake2s_128_bindings.ml)
+(copy raw/lib/Hacl_HKDF_Blake2s_128_stubs.ml Hacl_HKDF_Blake2s_128_stubs.ml)
+(copy raw/lib/Hacl_HKDF_Blake2s_128_bindings.ml Hacl_HKDF_Blake2s_128_bindings.ml)
 (copy raw/lib/Hacl_GenericField64_stubs.ml Hacl_GenericField64_stubs.ml)
 (copy raw/lib/Hacl_GenericField64_bindings.ml Hacl_GenericField64_bindings.ml)
 (copy raw/lib/Hacl_Frodo1344_stubs.ml Hacl_Frodo1344_stubs.ml)
 (copy raw/lib/Hacl_Frodo1344_bindings.ml Hacl_Frodo1344_bindings.ml)
 (copy raw/lib/Hacl_Bignum32_stubs.ml Hacl_Bignum32_stubs.ml)
 (copy raw/lib/Hacl_Bignum32_bindings.ml Hacl_Bignum32_bindings.ml)
+(copy raw/lib/Hacl_HPKE_Curve51_CP128_SHA256_stubs.ml Hacl_HPKE_Curve51_CP128_SHA256_stubs.ml)
+(copy raw/lib/Hacl_HPKE_Curve51_CP128_SHA256_bindings.ml Hacl_HPKE_Curve51_CP128_SHA256_bindings.ml)
 (copy raw/lib/Hacl_Bignum256_32_stubs.ml Hacl_Bignum256_32_stubs.ml)
 (copy raw/lib/Hacl_Bignum256_32_bindings.ml Hacl_Bignum256_32_bindings.ml)
+(copy raw/lib/Hacl_SHA2_Vec128_stubs.ml Hacl_SHA2_Vec128_stubs.ml)
+(copy raw/lib/Hacl_SHA2_Vec128_bindings.ml Hacl_SHA2_Vec128_bindings.ml)
 (copy raw/lib/Hacl_Chacha20Poly1305_32_stubs.ml Hacl_Chacha20Poly1305_32_stubs.ml)
 (copy raw/lib/Hacl_Chacha20Poly1305_32_bindings.ml Hacl_Chacha20Poly1305_32_bindings.ml)
 (copy raw/lib/Hacl_HPKE_Curve51_CP32_SHA256_stubs.ml Hacl_HPKE_Curve51_CP32_SHA256_stubs.ml)
