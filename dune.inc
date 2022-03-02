@@ -2,7 +2,7 @@
 (library
  (name raw)
  (public_name hacl-star-raw)
- (libraries ctypes)
+ (libraries ctypes ctypes.stubs)
  (foreign_archives evercrypt_c_stubs evercrypt)
  (wrapped false)
  (flags (:standard -warn-error -27-33))
