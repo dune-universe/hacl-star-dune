@@ -458,8 +458,15 @@ if detect_powerpc; then
   fi
 fi
 
-# dune port: disable some arch-specific code
-compile_vec256=false
+# dune port: require vec128 and vec256, disable detection for vale
+if ! $compile_vec128; then
+  echo "$CC $CROSS_CFLAGS cannot compile 128-bit vector arithmetic, disabling"
+  exit 1
+fi
+if ! $compile_vec256; then
+  echo "$build_target does not support 256-bit arithmetic"
+  exit 1
+fi
 compile_vale=false
 
 if $compile_intrinsics; then

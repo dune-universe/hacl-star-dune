@@ -23,6 +23,7 @@ depends: [
 available: [
   arch != "ppc64" & arch != "ppc32" &
   arch != "arm32" & arch != "x86_32" &
+  arch != "arm64" & arch != "s390x" &
   (os = "freebsd" | os-family != "bsd")
 ]
 x-ci-accept-failures: [

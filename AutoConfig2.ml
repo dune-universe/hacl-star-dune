@@ -18,7 +18,7 @@ let has_feature = function
   | AES_NI -> everCrypt_AutoConfig2_has_aesni ()
   | PCLMULQDQ -> everCrypt_AutoConfig2_has_pclmulqdq ()
   | VEC128 -> everCrypt_AutoConfig2_has_vec128 ()
-  | VEC256 -> false
+  | VEC256 -> everCrypt_AutoConfig2_has_vec256 ()
   | BMI2 -> everCrypt_AutoConfig2_has_bmi2 ()
   | ADX -> everCrypt_AutoConfig2_has_adx ()
   | SSE -> everCrypt_AutoConfig2_has_sse ()
