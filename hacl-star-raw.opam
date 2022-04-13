@@ -11,7 +11,7 @@ which `hacl-star-raw` is a dependency.
 maintainer: "Victor Dumitrescu <victor.dumitrescu@nomadic-labs.com>"
 authors: [ "Project Everest" ]
 license: "Apache-2.0"
-homepage: "https://hacl-star.github.io/"
+homepage: "http://github.com/dune-universe/hacl-star-dune"
 bug-reports: "https://github.com/project-everest/hacl-star/issues"
 depends: [
   "dune" { >= "2.6" }
@@ -37,4 +37,4 @@ build: [
 install: [
   make "-C" "raw" "install-hacl-star-raw"
 ]
-dev-repo: "git+https://github.com/project-everest/hacl-star.git"
+dev-repo: "git+https://github.com/dune-universe/hacl-star-dune.git"
