@@ -516,11 +516,6 @@ else
   echo "#define HACL_CAN_COMPILE_UINT128 1" >> config.h
 fi
 
-if [[ "$disable_ocaml" == "1" ]] || ! detect_ocaml; then
-  echo "OCaml bindings disabled"
-  echo "DISABLE_OCAML_BINDINGS=1" >> Makefile.config
-fi
-
 if [[ $target_sys == "Linux" ]]; then
   if [[ "$disable_bzero" == "1" ]]; then
     echo "disabling the use of explicit_bzero"
