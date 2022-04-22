@@ -467,7 +467,6 @@ if ! $compile_vec256; then
   echo "$build_target does not support 256-bit arithmetic"
   exit 1
 fi
-compile_vale=false
 
 if $compile_intrinsics; then
   echo "$build_target supports _addcarry_u64"

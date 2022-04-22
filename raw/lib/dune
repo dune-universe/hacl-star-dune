@@ -1,0 +1,51 @@
+(library
+  (name lib_hacl_spec_bindings)
+  (public_name hacl-star-raw.lib-hacl-spec-bindings)
+  (wrapped false)
+  (libraries ctypes ctypes.stubs)
+  (flags (:standard -warn-error -33))
+  (modules Hacl_Spec_bindings))
+
+(library
+  (name lib_evercrypt_error_bindings)
+  (public_name hacl-star-raw.lib-evercrypt-error-bindings)
+  (wrapped false)
+  (libraries ctypes ctypes.stubs)
+  (flags (:standard -warn-error -33))
+  (modules EverCrypt_Error_bindings))
+
+(library
+  (name lib_hacl_genericfield32_bindings)
+  (public_name hacl-star-raw.lib-hacl-genericfield32-bindings)
+  (wrapped false)
+  (libraries ctypes ctypes.stubs)
+  (flags (:standard -warn-error -33))
+  (modules Hacl_GenericField32_bindings))
+
+(library
+  (name lib_hacl_bignum256_bindings)
+  (public_name hacl-star-raw.lib-hacl-bignum256-bindings)
+  (wrapped false)
+  (libraries ctypes ctypes.stubs)
+  (flags (:standard -warn-error -33))
+  (modules Hacl_Bignum256_bindings))
+
+(executable
+ (name gen_dune_rules)
+ (libraries dune_modules)
+ (modules Gen_dune_rules))
+
+(rule
+ (mode promote)
+ (action
+   (with-stdout-to dune.inc
+                   (run ./gen_dune_rules.exe))))
+
+(include dune.inc)
+
+(library
+  (name lib_bindings)
+  (public_name hacl-star-raw.lib-bindings)
+  (libraries lib_bindings_gen)
+  (modules)
+  (wrapped false))

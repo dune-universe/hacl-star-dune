@@ -1,0 +1,195 @@
+(library
+ (name raw)
+ (public_name hacl-star-raw)
+ (libraries ctypes ctypes.stubs lib_stubs lib_bindings)
+ (modules)
+ (wrapped false))
+
+(rule
+ (deps configure)
+ (targets
+  config.h
+  Makefile.config)
+ (action
+  (no-infer
+    (run ./configure))))
+
+(library
+  (name lib_evercrypt_so)
+  (public_name hacl-star-raw.lib-evercrypt-so)
+  (modules)
+  (foreign_archives evercrypt))
+
+(rule
+  (deps config.h Makefile Makefile.config (source_tree .))
+  (targets libevercrypt.a dllevercrypt.so)
+  (action
+    (no-infer
+      (progn
+        (run make libevercrypt.so libevercrypt.a)
+        (bash "mv libevercrypt.so dllevercrypt.so")))))
+
+(rule
+  (deps lib_gen/Hacl_Spec_gen.exe)
+  (targets Hacl_Spec_stubs.ml Hacl_Spec_c_stubs.c)
+  (action
+    (progn
+      (system "mkdir -p lib")
+      (run %{deps})
+      (no-infer
+        (copy lib/Hacl_Spec_stubs.ml Hacl_Spec_stubs.ml))
+      (no-infer
+        (copy lib/Hacl_Spec_c_stubs.c Hacl_Spec_c_stubs.c)))))
+
+(library
+  (name lib_hacl_spec_stubs)
+  (public_name hacl-star-raw.hacl-spec-stubs)
+  (modules Hacl_Spec_stubs)
+  (foreign_stubs
+    (language c)
+    (include_dirs ../kremlin/include ../kremlin/kremlib/dist/minimal internal)
+    (extra_deps evercrypt_targetconfig.h)
+    (flags :standard -I.)
+    (names Hacl_Spec_c_stubs))
+  (libraries ctypes)
+  (wrapped false))
+
+(library
+  (name lib_evercrypt_error_stubs)
+  (public_name hacl-star-raw.evercrypt_error_stubs)
+  (modules EverCrypt_Error_stubs)
+  (foreign_stubs
+    (language c)
+    (include_dirs ../kremlin/include ../kremlin/kremlib/dist/minimal)
+    (names EverCrypt_Error_c_stubs))
+  (libraries ctypes)
+  (wrapped false))
+
+(rule
+  (deps lib_gen/EverCrypt_Error_gen.exe)
+  (targets EverCrypt_Error_stubs.ml EverCrypt_Error_c_stubs.c)
+  (action
+    (progn
+      (system "mkdir -p lib")
+      (run %{deps})
+      (no-infer
+        (copy lib/EverCrypt_Error_stubs.ml EverCrypt_Error_stubs.ml))
+      (no-infer
+        (copy lib/EverCrypt_Error_c_stubs.c EverCrypt_Error_c_stubs.c)))))
+
+(library
+  (name lib_hacl_genericfield32_stubs)
+  (public_name hacl-star-raw.hacl_genericfield32_stubs)
+  (modules Hacl_GenericField32_stubs)
+  (foreign_stubs
+    (language c)
+    (include_dirs ../kremlin/include ../kremlin/kremlib/dist/minimal)
+    (names Hacl_GenericField32_c_stubs))
+  (libraries lib_evercrypt_so ctypes)
+  (wrapped false))
+
+(rule
+  (deps lib_gen/Hacl_GenericField32_gen.exe)
+  (targets Hacl_GenericField32_stubs.ml Hacl_GenericField32_c_stubs.c)
+  (action
+    (progn
+      (system "mkdir -p lib")
+      (run %{deps})
+      (no-infer
+        (copy lib/Hacl_GenericField32_stubs.ml Hacl_GenericField32_stubs.ml))
+      (no-infer
+        (copy lib/Hacl_GenericField32_c_stubs.c Hacl_GenericField32_c_stubs.c)))))
+
+(library
+  (name lib_hacl_bignum256_stubs)
+  (public_name hacl-star-raw.hacl_bignum256_stubs)
+  (modules Hacl_Bignum256_stubs)
+  (foreign_stubs
+    (language c)
+    (include_dirs ../kremlin/include ../kremlin/kremlib/dist/minimal)
+    (names Hacl_Bignum256_c_stubs))
+  (libraries lib_evercrypt_so ctypes)
+  (wrapped false))
+
+(rule
+  (deps lib_gen/Hacl_Bignum256_gen.exe)
+  (targets Hacl_Bignum256_stubs.ml Hacl_Bignum256_c_stubs.c)
+  (action
+    (progn
+      (system "mkdir -p lib")
+      (run %{deps})
+      (no-infer
+        (copy lib/Hacl_Bignum256_stubs.ml Hacl_Bignum256_stubs.ml))
+      (no-infer
+        (copy lib/Hacl_Bignum256_c_stubs.c Hacl_Bignum256_c_stubs.c)))))
+
+(library
+  (name lib_Hacl_Hash_Blake2_stubs)
+  (public_name hacl-star-raw.Hacl_Hash_Blake2_stubs)
+  (modules Hacl_Hash_Blake2_stubs)
+  (foreign_stubs
+    (language c)
+    (include_dirs ../kremlin/include ../kremlin/kremlib/dist/minimal)
+    (names Hacl_Hash_Blake2_c_stubs))
+  (libraries lib_evercrypt_so ctypes)
+  (wrapped false))
+
+(rule
+  (deps lib_gen/Hacl_Hash_Blake2_gen.exe)
+  (targets Hacl_Hash_Blake2_stubs.ml Hacl_Hash_Blake2_c_stubs.c)
+  (action
+    (progn
+      (system "mkdir -p lib")
+      (run %{deps})
+      (no-infer
+        (copy lib/Hacl_Hash_Blake2_stubs.ml Hacl_Hash_Blake2_stubs.ml))
+      (no-infer
+        (copy lib/Hacl_Hash_Blake2_c_stubs.c Hacl_Hash_Blake2_c_stubs.c)))))
+
+(library
+  (name lib_Hacl_Streaming_SHA2_stubs)
+  (public_name hacl-star-raw.Hacl_Streaming_SHA2_stubs)
+  (modules Hacl_Streaming_SHA2_stubs)
+  (foreign_stubs
+    (language c)
+    (include_dirs ../kremlin/include ../kremlin/kremlib/dist/minimal)
+    (names Hacl_Streaming_SHA2_c_stubs))
+  (libraries lib_evercrypt_so ctypes)
+  (wrapped false))
+
+(rule
+  (deps lib_gen/Hacl_Streaming_SHA2_gen.exe)
+  (targets Hacl_Streaming_SHA2_stubs.ml Hacl_Streaming_SHA2_c_stubs.c)
+  (action
+    (progn
+      (system "mkdir -p lib")
+      (run %{deps})
+      (no-infer
+        (copy lib/Hacl_Streaming_SHA2_stubs.ml Hacl_Streaming_SHA2_stubs.ml))
+      (no-infer
+        (copy lib/Hacl_Streaming_SHA2_c_stubs.c Hacl_Streaming_SHA2_c_stubs.c)))))
+
+(library
+  (name dune_modules)
+  (modules dune_modules))
+
+(executable
+ (name gen_dune_rules)
+ (libraries dune_modules)
+ (modules Gen_dune_rules))
+
+(rule
+ (mode promote)
+ (action
+   (with-stdout-to dune.inc
+                   (run ./gen_dune_rules.exe))))
+
+(include dune.inc)
+
+(library
+  (name lib_stubs)
+  (public_name hacl-star-raw.lib-stubs)
+  (libraries lib_hacl_spec_stubs
+             lib_stubs_gen)
+  (modules)
+  (wrapped false))

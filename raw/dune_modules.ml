@@ -1,18 +1,6 @@
-let pp_list ppf l =
-  List.iter (fun s -> Format.fprintf ppf "%s\n" s) l
-
-let pp_copy ppf l =
-  List.iter (fun s -> Format.fprintf ppf "(copy raw/lib/%s %s)\n" s s) l
-
 let modules =
-  List.concat @@
-  List.map
-    (fun s ->
-      [ Printf.sprintf "%s_stubs" s;
-        Printf.sprintf "%s_bindings" s])
-  [ "Hacl_Spec"
-  ; "Hacl_Hash_Base"
-  ; "Hacl_Hash_Blake2"
+  [ "Hacl_Hash_Base"
+  (* ; "Hacl_Hash_Blake2" *)
   ; "Hacl_Hash_Blake2b_256"
   ; "Hacl_Hash_Blake2s_128"
   ; "Hacl_Hash_MD5"
@@ -24,17 +12,17 @@ let modules =
   ; "Hacl_Chacha20"
   ; "Hacl_Salsa20"
   ; "Hacl_Bignum_Base"
-  ; "Hacl_Bignum"
+  (* MANUAL ; "Hacl_Bignum" *)
   ; "Hacl_Curve25519_64_Slow"
+  ; "Hacl_Curve25519_64"
   ; "Hacl_Bignum25519_51"
   ; "Hacl_Curve25519_51"
-  ; "Hacl_Streaming_SHA2"
+  (* MANUALLY ; "Hacl_Streaming_SHA2" *)
   ; "Hacl_Ed25519"
   ; "Hacl_Poly1305_32"
   ; "Hacl_Poly1305_128"
   ; "Hacl_Poly1305_256"
   ; "Hacl_NaCl"
-  ; "EverCrypt_Error"
   ; "EverCrypt_CTR"
   ; "Hacl_P256"
   ; "Hacl_Frodo_KEM"
@@ -49,8 +37,8 @@ let modules =
   ; "Hacl_HMAC"
   ; "Hacl_HKDF"
   ; "Hacl_HPKE_Curve51_CP128_SHA512"
-  ; "Hacl_GenericField32"
-  ; "Hacl_Bignum256"
+  (* MANUALLY ; "Hacl_GenericField32" *)
+  (* MANUALLY ; "Hacl_Bignum256" *)
   ; "Hacl_SHA2_Vec256"
   ; "Hacl_Bignum4096"
   ; "Hacl_Chacha20_Vec32"
@@ -96,48 +84,15 @@ let modules =
   ; "EverCrypt_Vale"
   ; "EverCrypt_StaticConfig"
   ; "Lib_RandomBuffer_System"
+  ; "Hacl_HPKE_Curve64_CP128_SHA256"
+  ; "Hacl_HPKE_Curve64_CP128_SHA512"
+  ; "Hacl_HPKE_Curve64_CP256_SHA256"
+  ; "Hacl_HPKE_Curve64_CP256_SHA512"
+  ; "Hacl_HPKE_Curve64_CP32_SHA256"
+  ; "Hacl_HPKE_Curve64_CP32_SHA512"
   ]
 
-let ml_files =
-  List.map (fun s -> Printf.sprintf "%s.ml" s) modules
-
-let () =
-  Format.printf {|
-(library
- (name raw)
- (public_name hacl-star-raw)
- (libraries ctypes ctypes.stubs)
- (foreign_archives evercrypt_c_stubs evercrypt)
- (wrapped false)
- (flags (:standard -warn-error -27-33))
- (modules %a))
-|} pp_list modules;
-  Format.printf {|
-(rule
- (deps
-  (source_tree raw)
-  (source_tree kremlin))
- (targets
-  config.h
-  %a
-  libevercrypt.a
-  dllevercrypt.so
-  libevercrypt_c_stubs.a
-  dllevercrypt_c_stubs.so
-  )
- (action
-  (no-infer
-   (progn
-    (chdir raw (run ./configure))
-    (chdir raw (run make -j 8))
-    (chdir raw (run make libevercrypt_c_stubs.a dllevercrypt_c_stubs.so))
-    %a
-    (copy raw/config.h config.h)
-    (copy raw/libevercrypt.a libevercrypt.a)
-    (copy raw/libevercrypt.so dllevercrypt.so)
-    (copy raw/libevercrypt_c_stubs.a libevercrypt_c_stubs.a)
-    (copy raw/dllevercrypt_c_stubs.so dllevercrypt_c_stubs.so)
-    ))))
-    |}
-    pp_list ml_files
-    pp_copy ml_files
+let stage1 = [
+  "Hacl_Hash_Blake2";
+  "Hacl_Streaming_SHA2";
+]
