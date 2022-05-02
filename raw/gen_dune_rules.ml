@@ -12,7 +12,7 @@ let () =
   (name lib_stubs_gen)
   (public_name hacl-star-raw.stubs_gen)
   (modules %a)
-  (libraries lib_hacl_spec_stubs lib_evercrypt_so ctypes)
+  (libraries lib_Hacl_Spec_stubs lib_evercrypt_so ctypes)
   (foreign_stubs
     (language c)
     (names %a)
@@ -25,12 +25,11 @@ let () =
   List.iter (fun m ->
     Format.printf {|
 (rule
-  (deps lib_gen/%s_gen.exe)
   (targets %s_stubs.ml %s_c_stubs.c)
   (action
     (progn
       (system "mkdir -p lib")
-      (run %%{deps})
+      (run lib_gen/%s_gen.exe)
       (no-infer
         (copy lib/%s_stubs.ml %s_stubs.ml))
       (no-infer

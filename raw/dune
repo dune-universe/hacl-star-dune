@@ -6,14 +6,12 @@
  (wrapped false))
 
 (rule
- (deps configure
-       (source_tree ../kremlin))
+ (deps (source_tree ../kremlin))
  (targets
   config.h
   Makefile.config)
  (action
-  (no-infer
-    (run ./configure))))
+   (run ./configure)))
 
 (library
   (name lib_evercrypt_so)
@@ -27,24 +25,23 @@
   (action
     (no-infer
       (progn
-        (run make libevercrypt.so libevercrypt.a)
+        (run %{make} libevercrypt.so libevercrypt.a)
         (bash "mv libevercrypt.so dllevercrypt.so")))))
 
 (rule
-  (deps lib_gen/Hacl_Spec_gen.exe)
   (targets Hacl_Spec_stubs.ml Hacl_Spec_c_stubs.c)
   (action
     (progn
       (system "mkdir -p lib")
-      (run %{deps})
+      (run lib_gen/Hacl_Spec_gen.exe)
       (no-infer
         (copy lib/Hacl_Spec_stubs.ml Hacl_Spec_stubs.ml))
       (no-infer
         (copy lib/Hacl_Spec_c_stubs.c Hacl_Spec_c_stubs.c)))))
 
 (library
-  (name lib_hacl_spec_stubs)
-  (public_name hacl-star-raw.hacl-spec-stubs)
+  (name lib_Hacl_Spec_stubs)
+  (public_name hacl-star-raw.Hacl_Spec-stubs)
   (modules Hacl_Spec_stubs)
   (foreign_stubs
     (language c)
@@ -56,8 +53,8 @@
   (wrapped false))
 
 (library
-  (name lib_evercrypt_error_stubs)
-  (public_name hacl-star-raw.evercrypt_error_stubs)
+  (name lib_EverCrypt_Error_stubs)
+  (public_name hacl-star-raw.EverCrypt_Error_stubs)
   (modules EverCrypt_Error_stubs)
   (foreign_stubs
     (language c)
@@ -67,20 +64,19 @@
   (wrapped false))
 
 (rule
-  (deps lib_gen/EverCrypt_Error_gen.exe)
   (targets EverCrypt_Error_stubs.ml EverCrypt_Error_c_stubs.c)
   (action
     (progn
       (system "mkdir -p lib")
-      (run %{deps})
+      (run lib_gen/EverCrypt_Error_gen.exe)
       (no-infer
         (copy lib/EverCrypt_Error_stubs.ml EverCrypt_Error_stubs.ml))
       (no-infer
         (copy lib/EverCrypt_Error_c_stubs.c EverCrypt_Error_c_stubs.c)))))
 
 (library
-  (name lib_hacl_genericfield32_stubs)
-  (public_name hacl-star-raw.hacl_genericfield32_stubs)
+  (name lib_Hacl_GenericField32_stubs)
+  (public_name hacl-star-raw.Hacl_GenericField32_stubs)
   (modules Hacl_GenericField32_stubs)
   (foreign_stubs
     (language c)
@@ -90,20 +86,19 @@
   (wrapped false))
 
 (rule
-  (deps lib_gen/Hacl_GenericField32_gen.exe)
   (targets Hacl_GenericField32_stubs.ml Hacl_GenericField32_c_stubs.c)
   (action
     (progn
       (system "mkdir -p lib")
-      (run %{deps})
+      (run lib_gen/Hacl_GenericField32_gen.exe)
       (no-infer
         (copy lib/Hacl_GenericField32_stubs.ml Hacl_GenericField32_stubs.ml))
       (no-infer
         (copy lib/Hacl_GenericField32_c_stubs.c Hacl_GenericField32_c_stubs.c)))))
 
 (library
-  (name lib_hacl_bignum256_stubs)
-  (public_name hacl-star-raw.hacl_bignum256_stubs)
+  (name lib_Hacl_Bignum256_stubs)
+  (public_name hacl-star-raw.Hacl_Bignum256_stubs)
   (modules Hacl_Bignum256_stubs)
   (foreign_stubs
     (language c)
@@ -118,7 +113,7 @@
   (action
     (progn
       (system "mkdir -p lib")
-      (run %{deps})
+      (run lib_gen/Hacl_Bignum256_gen.exe)
       (no-infer
         (copy lib/Hacl_Bignum256_stubs.ml Hacl_Bignum256_stubs.ml))
       (no-infer
@@ -136,12 +131,11 @@
   (wrapped false))
 
 (rule
-  (deps lib_gen/Hacl_Hash_Blake2_gen.exe)
   (targets Hacl_Hash_Blake2_stubs.ml Hacl_Hash_Blake2_c_stubs.c)
   (action
     (progn
       (system "mkdir -p lib")
-      (run %{deps})
+      (run lib_gen/Hacl_Hash_Blake2_gen.exe)
       (no-infer
         (copy lib/Hacl_Hash_Blake2_stubs.ml Hacl_Hash_Blake2_stubs.ml))
       (no-infer
@@ -159,12 +153,11 @@
   (wrapped false))
 
 (rule
-  (deps lib_gen/Hacl_Streaming_SHA2_gen.exe)
   (targets Hacl_Streaming_SHA2_stubs.ml Hacl_Streaming_SHA2_c_stubs.c)
   (action
     (progn
       (system "mkdir -p lib")
-      (run %{deps})
+      (run lib_gen/Hacl_Streaming_SHA2_gen.exe)
       (no-infer
         (copy lib/Hacl_Streaming_SHA2_stubs.ml Hacl_Streaming_SHA2_stubs.ml))
       (no-infer
@@ -190,7 +183,7 @@
 (library
   (name lib_stubs)
   (public_name hacl-star-raw.lib-stubs)
-  (libraries lib_hacl_spec_stubs
+  (libraries lib_Hacl_Spec_stubs
              lib_stubs_gen)
   (modules)
   (wrapped false))

@@ -1,30 +1,30 @@
 (library
-  (name lib_hacl_spec_bindings)
-  (public_name hacl-star-raw.lib-hacl-spec-bindings)
+  (name lib_Hacl_Spec_bindings)
+  (public_name hacl-star-raw.lib-Hacl_Spec-bindings)
   (wrapped false)
   (libraries ctypes ctypes.stubs)
   (flags (:standard -warn-error -33))
   (modules Hacl_Spec_bindings))
 
 (library
-  (name lib_evercrypt_error_bindings)
-  (public_name hacl-star-raw.lib-evercrypt-error-bindings)
+  (name lib_EverCrypt_Error_bindings)
+  (public_name hacl-star-raw.lib-EverCrypt_Error-bindings)
   (wrapped false)
   (libraries ctypes ctypes.stubs)
   (flags (:standard -warn-error -33))
   (modules EverCrypt_Error_bindings))
 
 (library
-  (name lib_hacl_genericfield32_bindings)
-  (public_name hacl-star-raw.lib-hacl-genericfield32-bindings)
+  (name lib_Hacl_GenericField32_bindings)
+  (public_name hacl-star-raw.lib-Hacl_GenericField32-bindings)
   (wrapped false)
   (libraries ctypes ctypes.stubs)
   (flags (:standard -warn-error -33))
   (modules Hacl_GenericField32_bindings))
 
 (library
-  (name lib_hacl_bignum256_bindings)
-  (public_name hacl-star-raw.lib-hacl-bignum256-bindings)
+  (name lib_Hacl_Bignum256_bindings)
+  (public_name hacl-star-raw.lib-Hacl_Bignum256-bindings)
   (wrapped false)
   (libraries ctypes ctypes.stubs)
   (flags (:standard -warn-error -33))
