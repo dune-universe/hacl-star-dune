@@ -6,7 +6,8 @@
  (wrapped false))
 
 (rule
- (deps configure)
+ (deps configure
+       (source_tree ../kremlin))
  (targets
   config.h
   Makefile.config)
