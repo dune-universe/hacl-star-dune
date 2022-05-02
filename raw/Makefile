@@ -107,7 +107,7 @@ libevercrypt.$(SO): config.h $(OBJS)
 	$(CC) $(CFLAGS) -shared -o $@ $(filter-out %.h,$^) $(LDFLAGS)
 
 libevercrypt.a: config.h $(OBJS)
-	ar rc $@ $+
+	ar rc $@ $(filter-out %.h,$^)
 
 # 4. Compilation of OCaml bindings; conditional on the presence of the lib_gen
 # folder, possibly disabled by configure.

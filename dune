@@ -12,7 +12,4 @@
  (package hacl-star)
   (mld_files index))
 
-(rule
-  (deps raw/config.h)
-  (target config.h)
-  (action (copy %{deps} %{target})))
+(copy_files raw/config.h)
