@@ -15,7 +15,7 @@ let () =
   (public_name hacl-star-raw.lib-%s-bindings)
   (wrapped false)
   (libraries ctypes ctypes.stubs lib_evercrypt_so lib_Hacl_Spec_bindings lib_Hacl_Spec_stubs lib_EverCrypt_Error_bindings lib_EverCrypt_Error_stubs lib_Hacl_GenericField32_bindings lib_Hacl_GenericField32_stubs lib_Hacl_Bignum256_bindings lib_Hacl_Bignum256_stubs)
-  (flags (:standard -warn-error -33))
+  (flags (:standard -warn-error -27-33))
   (modules %s_bindings))
 |} m m m) Dune_modules.stage1;
 
@@ -26,7 +26,7 @@ let () =
   (public_name hacl-star-raw.lib-%s-bindings)
   (wrapped false)
   (libraries ctypes ctypes.stubs lib_evercrypt_so lib_Hacl_Spec_bindings lib_Hacl_Spec_stubs lib_EverCrypt_Error_bindings lib_EverCrypt_Error_stubs lib_Hacl_GenericField32_bindings lib_Hacl_GenericField32_stubs lib_Hacl_Bignum256_bindings lib_Hacl_Bignum256_stubs lib_Hacl_Hash_Blake2_bindings lib_Hacl_Hash_Blake2_stubs lib_Hacl_Streaming_SHA2_bindings lib_Hacl_Streaming_SHA2_stubs)
-  (flags (:standard -warn-error -33))
+  (flags (:standard -warn-error -27-33))
   (modules %s_bindings))
 |} m m m) modules;
 
