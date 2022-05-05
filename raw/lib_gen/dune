@@ -1,0 +1,32 @@
+(executable
+  (name Hacl_Spec_gen)
+  (modules Hacl_Spec_gen)
+  (libraries lib_Hacl_Spec_bindings ctypes.stubs))
+
+(executable
+  (name EverCrypt_Error_gen)
+  (modules EverCrypt_Error_gen)
+  (libraries lib_EverCrypt_Error_bindings ctypes.stubs))
+
+(executable
+  (name Hacl_GenericField32_gen)
+  (modules Hacl_GenericField32_gen)
+  (libraries lib_EverCrypt_Error_bindings lib_Hacl_GenericField32_bindings ctypes.stubs))
+
+(executable
+  (name Hacl_Bignum256_gen)
+  (modules Hacl_Bignum256_gen)
+  (libraries lib_EverCrypt_Error_bindings lib_Hacl_Bignum256_bindings ctypes.stubs))
+
+(executable
+ (name gen_dune_rules)
+ (libraries dune_modules)
+ (modules Gen_dune_rules))
+
+(rule
+ (mode promote)
+ (action
+   (with-stdout-to dune.inc
+                   (run ./gen_dune_rules.exe))))
+
+(include dune.inc)
